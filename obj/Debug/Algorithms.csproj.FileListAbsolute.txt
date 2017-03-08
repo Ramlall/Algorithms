@@ -1,0 +1,7 @@
+C:\work\Algorithms\bin\Debug\Algorithms.exe.config
+C:\work\Algorithms_Coursera\bin\Debug\Algorithms.exe.config
+C:\work\Algorithms_Coursera\bin\Debug\Algorithms.exe
+C:\work\Algorithms_Coursera\bin\Debug\Algorithms.pdb
+C:\work\Algorithms_Coursera\obj\Debug\Algorithms.exe
+C:\work\Algorithms_Coursera\obj\Debug\Algorithms.pdb
+C:\work\Algorithms_Coursera\obj\Debug\Algorithms.csprojResolveAssemblyReference.cache
