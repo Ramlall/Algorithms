@@ -17,12 +17,12 @@ bool Find(int item1, int item2) - True if item1 and item2 are in the same connec
 void Union(int item2, int item2) - Connect item1 and item2.
 
 # Stacks and Queues
-Implemented our own stack and queue data structures. By default they use resizing arrays. (Code for linked list version is also there.) Written using generics so specify data type/object when initializing. Enumeration (foreach) currently not available. 
+Implemented our own stack and queue data structures. By default they use resizing arrays. (Code for linked list version is also there.) Written using generics so specify data type/object when initializing. Enumeration available so "foreach" loop available.
 
 ##Initialize
-Algorithms.Queue<int> queue = new Queue<int>();
+Algorithms.Queue<string> queue = new Queue<string>();
 
-Algorithms.Stack<int> stack = new Stack<int>();
+Algorithms.Stack<string> stack = new Stack<string>();
 
 ##Stack Operations 
 void Push(T item) - Put an item onto the stack.

@@ -83,7 +83,7 @@ namespace Algorithms
             first = first.next;
             return item;
             }
-        }
+        }   // End of class LinkedListStack
 
     public class ResizeableArrayStack<T>
         {
@@ -142,7 +142,16 @@ namespace Algorithms
             // Return the item to the client.
             return item;
             }
-        }
+
+        // An enumerator so we can use a foreach loop with this stack.
+        public System.Collections.IEnumerator GetEnumerator()
+            {
+            for(int i = 0; i < size; i++)
+                {
+                yield return stackArray[i];
+                }
+            }
+        }   // End of class ResizeableArrayStack
 
 
     // Our real stack class that client will call by default.
@@ -214,7 +223,7 @@ namespace Algorithms
             size -= 1;
             return item;
             }
-        }
+        }   // End of class LinkedListQueue
 
 
     public class ResizeableArrayQueue<T>
@@ -308,7 +317,17 @@ namespace Algorithms
             // Return the item to the client.
             return item;
             }
-        }
+        
+        // An enumerator so we can use a foreach loop with this queue.
+        public System.Collections.IEnumerator GetEnumerator()
+            {
+            for(int i = 0; i < size; i++)
+                {
+                yield return queueArray[i];
+                }
+            }
+
+        }   // End of class ResizableArrayQueue
 
     // Our real queue class that client will call by default.
     public class Queue<T> : ResizeableArrayQueue<T>
