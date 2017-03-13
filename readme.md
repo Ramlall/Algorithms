@@ -38,6 +38,6 @@ void Enqueue(T item) - Put an item into the queue.
 
 T Dequeue() - Remove the item from the front of the queue and return it to the function caller.
 
-size - The size of the stack.
+size - The size of the queue.
 
-bool IsEmpty() - Checks if there's any items on the stack.
+bool IsEmpty() - Checks if there's any items on the queue.
