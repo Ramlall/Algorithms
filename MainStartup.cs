@@ -17,26 +17,7 @@ namespace Algorithms
         {
         static void Main()
             {
-            // Initialize a stack and queue.
-            Algorithms.Queue<int> queue = new Queue<int>();
-            Algorithms.Stack<int> stack = new Stack<int>();
-
-            // Add 0-20
-            for(int i = 0; i <= 20; i++)
-                {
-                queue.Enqueue(i);
-                stack.Push(i);
-                }
-
-            // Use a foreach loop to output it
-            Console.Write($"Queue contains: ");
-            foreach(int item in queue)
-                { Console.Write($"{item} "); }
-            
-            Console.Write($"Stack contains: ");
-            foreach(int item in stack)
-                { Console.Write($"{item} "); }
-
+ 
             } // End of Main.
         } // End of class MainStartup
     } // End of namespace Algorithms
