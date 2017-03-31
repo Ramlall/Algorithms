@@ -257,7 +257,7 @@ namespace Algorithms
             int capacity = Convert.ToInt32(Math.Pow(2, roundedup));
 
             if(size == 1)
-                { capacity = 2; tail = 1; }
+               { capacity = 2; head = 0; tail = 1; }
 
             //Console.Write("$queueArray: "); for(int i = 0; i < queueArray.Length; i++) { Console.Write($"{queueArray[i]} "); } Console.WriteLine();
             //Console.WriteLine($"QueueArray resized to {capacity}");

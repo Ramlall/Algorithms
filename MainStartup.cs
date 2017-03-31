@@ -17,7 +17,24 @@ namespace Algorithms
         {
         static void Main()
             {
- 
+            // Test Graph class
+
+            // Add edges.
+            Graph graph = new Graph(4);
+            graph.AddDirectedEdge(0, 1);
+            graph.AddDirectedEdge(0, 2);
+            graph.AddDirectedEdge(1, 2);
+            graph.AddDirectedEdge(2, 0);
+            graph.AddDirectedEdge(2, 3);
+            graph.AddDirectedEdge(3, 3);
+
+            // BFS
+            int source = 2;
+            Console.WriteLine($"The answer if we BFS starting at node {source} is: ");
+            graph.BFS(source);
+
+            // DFS
+
             } // End of Main.
         } // End of class MainStartup
     } // End of namespace Algorithms
