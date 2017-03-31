@@ -17,6 +17,7 @@ bool Find(int item1, int item2) - True if item1 and item2 are in the same connec
 void Union(int item2, int item2) - Connect item1 and item2.
 
 # Stacks and Queues
+NOTE: Currently queue doesn't work.
 Implemented our own stack and queue data structures. By default they use resizing arrays. (Code for linked list version is also there.) Written using generics so specify data type/object when initializing. Enumeration available so "foreach" loop available.
 
 ##Initialize
@@ -41,3 +42,19 @@ T Dequeue() - Remove the item from the front of the queue and return it to the f
 size - The size of the queue.
 
 bool IsEmpty() - Checks if there's any items on the queue.
+
+# Graph
+Creates a graph where you're allowed to add directed or undirected edges. Has functions for Breadth First Search and Depth First Search
+
+## Initialize
+Graph graph = new Graph(int NumberOfVertices);
+
+graph.AddUndirectedEdge(int vertex1, int vertex2);
+
+or 
+
+graph.AddDirectedEdge(int vertex1, int vertex2);
+
+graph.BFS(int sourceVertex);
+
+graph.BFS(int sourceVertex);

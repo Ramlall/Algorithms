@@ -95,19 +95,39 @@ namespace Algorithms
         // Depth First Search Helper
         // 
         public void DFS_Helper(int vertex)
-            { 
-            
+            {
+            // Mark the current vertex as visited
+            DFSvisited[vertex] = true;
+
+            // Output it to console.
+            Console.Write($"{vertex} ");
+
+            // Recursively call DFS on all neighbors that haven't been visited yet.
+            for(int i = 0; i < adjList[vertex].Count; i++) // Goes through all neighbors of this vertex in the adjacency list.
+                {
+                // The neighbor
+                int neighbor = adjList[vertex][i];
+
+                // If it wasn't visited
+                if(DFSvisited[neighbor] == false)
+                    {
+                    // Recursively call it.
+                    DFS_Helper(neighbor);
+                    }
+                }
+
             }
 
         // Depth First Search
-        public void DFS()
+        public void DFS(int source)
             {
             // Initialize the visited array
             DFSvisited = new List<bool>();
             for(int i = 0; i < V; i++)
                 { DFSvisited.Add(false); }
 
-            
+            // Call the Helper function on our source.
+            DFS_Helper(source);
             }
         }
     }
