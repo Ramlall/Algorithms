@@ -23,9 +23,7 @@ namespace Algorithms
             {
             // Set the vertex count
             V = numOfVertices;
-
-
-
+            
             // Initialize adjList
             adjList = new List< List<int> >();
             for(int i = 0; i < numOfVertices; i++)
