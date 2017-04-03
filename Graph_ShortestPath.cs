@@ -129,17 +129,19 @@ namespace Algorithms
                 // NOTE: We could add a break condition if the target vertex is in the shortestPathSet
                 
                 /* CHOOSE VERTEX TO RELAX */
-                int u = Int32.MaxValue; // The vertex we're going to relax.
+                int min = Int32.MaxValue; // The distance of that vertex
+                int u = Int32.MaxValue; // The vertex index we're going to relax.
                 
                 // Look in the shortestPathSet and find the vertex with the shortest distance that hasn't yet been processed.
                 for(int i = 0; i < V; i++)
                     {
-                    if(shortestPathProcessed[i] == false) // It wasn't processed yet.
+                    if(shortestPathProcessed[i] == false) // Vertex wasn't processed yet.
                         { 
-                        if( shortestPathList[i].distanceFromSource < u) // It's the min distance
+                        if(shortestPathList[i].distanceFromSource < min) // It's the min distance
                             {
                             // Update the best vertex to relax
                             u = i;
+                            min = shortestPathList[i].distanceFromSource;
                             }
                         }
                     }
@@ -147,7 +149,7 @@ namespace Algorithms
                 /* RELAX THE CHOSEN VERTEX */
                 // Mark our chosen vertex as visited.
                 shortestPathProcessed[u] = true;
-                Console.WriteLine($"Processing node {u}. Distance from source is {shortestPathList[u].distanceFromSource}");
+                //Console.WriteLine($"Processing node {u}. Distance from source is {shortestPathList[u].distanceFromSource}");
 
                 // Update the distance values of the adjacent vertices.
                 for(int i = 0; i < adjList[u].Count; i++)
@@ -161,6 +163,9 @@ namespace Algorithms
                     // If the path from u to node is smaller than the node's current distance value...
                     if(shortestPathList[u].distanceFromSource + node.weight <= shortestPathList[node.vertex].distanceFromSource)
                         {
+                        //Console.Write($"Relaxing neighbor of {u}: vertex {node.vertex} that has distance {shortestPathList[node.vertex].distanceFromSource}. ");
+                        //Console.WriteLine($"New distance is {shortestPathList[u].distanceFromSource + node.weight}");
+
                         // Update the distancefromsource to the better one.
                         shortestPathList[node.vertex].distanceFromSource = shortestPathList[u].distanceFromSource + node.weight;
                         // Update the parent pointer.
