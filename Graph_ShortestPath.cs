@@ -177,7 +177,73 @@ namespace Algorithms
                 }
 
             return shortestPathList;
-            }
+            } // End of Dijkstra
 
-        }
-    }
+        // Bellman ford algorithm.
+        public List<SPNode> BellmanFord(int sourceVertex)
+            { 
+            // This list holds the shortest path from sourceVertex to each other vertex.
+            List<SPNode> shortestPathList = new List<SPNode>();
+
+            // Initialize all distances to infinity.
+            for(int i = 0; i < V; i++)
+                {
+                shortestPathList.Add(new SPNode(Int32.MaxValue, -1));
+                }
+
+            // Set the distance for the source to 0.
+            shortestPathList[sourceVertex].distanceFromSource = 0;
+
+            // Relax all edges v - 1 times. 
+            for(int i = 0; i < V-1; i++) // V-1 times
+                { 
+                for(int j = 0; j < V; j++) // Each vertex
+                    {
+                    int u = j;
+
+                    // If distance is infinity then don't relax. There can't be a shortest path.
+                    if(shortestPathList[u].distanceFromSource == Int32.MaxValue)
+                        { continue; }
+
+                    for(int k = 0; k < adjList[j].Count; k++) // Each edge in the adjacency list for this vertex
+                        {
+                        int v = adjList[j][k].vertex;
+                        int weight = adjList[j][k].weight;
+
+                        if(shortestPathList[u].distanceFromSource + weight < shortestPathList[v].distanceFromSource)
+                            { 
+                            // Update distance
+                            shortestPathList[v].distanceFromSource = shortestPathList[u].distanceFromSource + weight;
+                            // Update parent
+                            shortestPathList[v].parentVertex = u;
+                            }
+
+                        }
+                    }
+                }
+            
+
+            // Do the check for negative weight cycles.
+            for(int j = 0; j < V; j++) // Each vertex
+                {
+                int u = j;
+
+                // If distance is infinity then don't relax. There can't be a shortest path.
+                if(shortestPathList[u].distanceFromSource == Int32.MaxValue)
+                   { continue; }
+
+                for(int k = 0; k < adjList[j].Count; k++) // Each edge in the adjacency list for this vertex
+                    {
+                    int v = adjList[j][k].vertex;
+                    int weight = adjList[j][k].weight;
+                    
+                    if(shortestPathList[u].distanceFromSource + weight < shortestPathList[v].distanceFromSource)
+                        { shortestPathList[v].distanceFromSource = Int32.MaxValue; }
+                    }
+                }        
+
+            return shortestPathList;
+            } // End of method BellmanFord
+
+        } // End of class Graph_ShortestPath
+    } // End of namespace 

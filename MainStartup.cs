@@ -46,9 +46,21 @@ namespace Algorithms
             spList.AddRange(gsp.Dijkstra(source));
 
             // Output the results from source to each of the edges.
+            Console.WriteLine("Dijkstra: ");
             for(int i = 0; i < v; i++)
                 {
                 Console.WriteLine($"Distance from {source} to {i} is {spList[i].distanceFromSource}. Parent is {spList[i].parentVertex}.");
+                }
+
+            // Do Bellman Ford
+            List<SPNode> spList1 = new List<SPNode>();
+            spList1.AddRange(gsp.BellmanFord(source));
+
+            // Output the results from source to each of the edges.
+            Console.WriteLine("Bellman Ford: ");
+            for(int i = 0; i < v; i++)
+                {
+                Console.WriteLine($"Distance from {source} to {i} is {spList1[i].distanceFromSource}. Parent is {spList1[i].parentVertex}.");
                 }
 
             } // End of Main.
