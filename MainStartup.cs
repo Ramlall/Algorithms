@@ -42,8 +42,7 @@ namespace Algorithms
 
             // Call Dijkstra and store it in a list.
             int source = 0;
-            List<SPNode> spList = new List<SPNode>();
-            spList.AddRange(gsp.Dijkstra(source));
+            List<SPNode> spList = gsp.Dijkstra(source);
 
             // Output the results from source to each of the edges.
             Console.WriteLine("Dijkstra: ");
@@ -53,8 +52,7 @@ namespace Algorithms
                 }
 
             // Do Bellman Ford
-            List<SPNode> spList1 = new List<SPNode>();
-            spList1.AddRange(gsp.BellmanFord(source));
+            List<SPNode> spList1 = gsp.BellmanFord(source);
 
             // Output the results from source to each of the edges.
             Console.WriteLine("Bellman Ford: ");

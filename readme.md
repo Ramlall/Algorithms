@@ -58,3 +58,21 @@ graph.AddDirectedEdge(int vertex1, int vertex2);
 graph.BFS(int sourceVertex);
 
 graph.BFS(int sourceVertex);
+
+# Graph_ShortestPath
+Creates a graph where you can add weighted edges. Includes 3 methods for Dijkstra, Floyd Warshall, and Bellman Ford Algorithm. 
+
+## Initialize
+int v = 9;
+Graph_ShortestPath gsp = new Graph_ShortestPath(v);
+gsp.AddWeightedUndirectedEdge(new WeightedEdge( 0, 1, 4));
+
+int source = 0;
+List<SPNode> spList = gsp.Dijkstra(source);
+Console.WriteLine($"Distance from {source} to {i} is {spList[i].distanceFromSource}. Parent is {spList[i].parentVertex}.");
+
+List<SPNode> spList1 = gsp.BellmanFord(source);
+Console.WriteLine($"Distance from {source} to {i} is {spList1[i].distanceFromSource}. Parent is {spList1[i].parentVertex}.");
+
+int[,] spMatrix = gsp1.FloydWarshall();
+int n = spMatrix[i, j];
