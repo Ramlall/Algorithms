@@ -63,6 +63,30 @@ namespace Algorithms
                 Console.WriteLine($"Distance from {source} to {i} is {spList1[i].distanceFromSource}. Parent is {spList1[i].parentVertex}.");
                 }
 
+            // Test Floyd Warshall
+            int source1 = 4;
+            Graph_ShortestPath gsp1 = new Graph_ShortestPath(source1);
+            gsp1.AddWeightedDirectedEdge(new WeightedEdge( 0, 1, 5));
+            gsp1.AddWeightedDirectedEdge(new WeightedEdge( 0, 3, 10));
+            gsp1.AddWeightedDirectedEdge(new WeightedEdge( 1, 2, 3));
+            gsp1.AddWeightedDirectedEdge(new WeightedEdge( 2, 3, 1));
+
+            int[,] spMatrix = gsp1.FloydWarshall();
+            Console.WriteLine("Floud Warshall: ");
+            for(int i = 0; i < source1; i++)
+                { 
+                for(int j = 0; j < source1; j++)
+                    {
+                    int n = spMatrix[i, j];
+                    if(n == Int32.MaxValue)
+                        { Console.Write($"INF    \t"); }
+                    else
+                        { Console.Write($"{n} \t"); }
+                    }
+                Console.WriteLine();
+                }
+            
+
             } // End of Main.
         } // End of class MainStartup
     } // End of namespace Algorithms

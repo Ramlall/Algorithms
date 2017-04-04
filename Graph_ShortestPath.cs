@@ -245,5 +245,66 @@ namespace Algorithms
             return shortestPathList;
             } // End of method BellmanFord
 
+
+        // Floyd Warshall Algorithm
+        // Returns a matrix of the shortest distance from vertex to vertex
+        public int[,] FloydWarshall()
+            {
+            /* INITIALIZE */
+            // Our shortest path matrix.
+            int[,] spMatrix = new int[V,V];
+
+            // Initialize every shortest path to infinity
+            for(int i = 0; i < V; i++)
+                { 
+                for(int j = 0; j < V; j++)
+                    {
+                    spMatrix[i, j] = Int32.MaxValue;
+                    }
+                }
+
+            // Set each source as 0 distance to itself
+            for(int i = 0; i < V; i++)
+                {
+                spMatrix[i, i] = 0;
+                }
+
+            // Set the edges as they should be based on the adjacency list.
+            for(int i = 0; i < V; i++)
+                { 
+                for(int j = 0; j < adjList[i].Count; j++)
+                    {
+
+                    spMatrix[i, adjList[i][j].vertex ] = adjList[i][j].weight;
+                    }
+                }
+
+            // Debug - output matrix
+            //Console.WriteLine("Debug Floyd Warshall");
+            //for(int i = 0; i < V; i++) { for(int j = 0; j < V; j++) { Console.Write($"{spMatrix[i, j]} "); } Console.WriteLine(); }
+
+            /* FIND SHORTEST PATHS */
+            for(int k = 0; k < V; k++)
+                { 
+                for(int i = 0; i < V; i++)
+                    { 
+                    for(int j = 0; j < V; j++)
+                        { 
+                        // Don't do anything if either value is infinity. It'll go over int32.maxvalue so the if statement will throw bad results
+                        if(spMatrix[i,k] == Int32.MaxValue || spMatrix[k,j] == Int32.MaxValue)
+                            { continue; }
+
+                        if(spMatrix[i,k] + spMatrix[k,j] < spMatrix[i,j])
+                            {
+                            spMatrix[i,j] = spMatrix[i,k] + spMatrix[k,j];
+                            }
+                        }
+                    }
+                }
+
+
+            return spMatrix;
+            }
+
         } // End of class Graph_ShortestPath
     } // End of namespace 
